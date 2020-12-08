@@ -27,6 +27,10 @@ mod ss;
 pub mod util;
 pub mod verifier;
 
+// for pi
+mod hid_common;
+mod hid_linux;
+
 /// HID device vendor ID , product ID
 pub struct HidParam {
     /// vendor ID
