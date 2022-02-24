@@ -61,24 +61,24 @@ use crate::public_key_credential_descriptor::PublicKeyCredentialDescriptor;
 use crate::public_key_credential_user_entity::PublicKeyCredentialUserEntity;
 use anyhow::{anyhow, Error, Result};
 
-#[cfg(not(target_os = "linux"))]
+//#[cfg(not(target_os = "linux"))]
 mod fidokey;
 
 // for pi
-#[cfg(target_os = "linux")]
-mod fidokey_pi;
+//#[cfg(target_os = "linux")]
+//mod fidokey_pi;
 
-#[cfg(target_os = "linux")]
-mod hid_common;
-#[cfg(target_os = "linux")]
-mod hid_linux;
+//#[cfg(target_os = "linux")]
+//mod hid_common;
+//#[cfg(target_os = "linux")]
+//mod hid_linux;
 
-#[cfg(not(target_os = "linux"))]
+//#[cfg(not(target_os = "linux"))]
 use crate::fidokey::*;
 
 // for pi
-#[cfg(target_os = "linux")]
-use crate::fidokey_pi::*;
+//#[cfg(target_os = "linux")]
+//use crate::fidokey_pi::*;
 
 pub type Key = HidParam;
 pub type Cfg = LibCfg;
