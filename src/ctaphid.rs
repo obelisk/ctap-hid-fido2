@@ -2,12 +2,8 @@ use crate::ctapdef;
 #[allow(unused_imports)]
 use crate::util;
 
-#[cfg(not(target_os = "linux"))]
 use crate::fidokey::*;
 
-// for pi
-#[cfg(target_os = "linux")]
-use crate::fidokey_pi::*;
 
 use std::{thread, time};
 
@@ -69,7 +65,7 @@ pub fn ctaphid_init(device: &FidoKeyHid) -> Result<[u8; 4], String> {
     Ok([buf[15], buf[16], buf[17], buf[18]])
 }
 
-fn get_responce_status(packet: &[u8]) -> Result<(u8, u16, u8), String> {
+pub fn get_responce_status(packet: &[u8]) -> Result<(u8, u16, u8), String> {
     // cid
     //println!("- cid: {:?}", &packet[0..4]);
     // cmd
